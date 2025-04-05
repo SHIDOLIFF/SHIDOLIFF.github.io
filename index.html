@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SHIDO Flex Share</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+<script>
+  async function main() {
+    await liff.init({ liffId: "2007005525-32Q1dqE5" });
+
+    if (liff.isLoggedIn()) {
+      shareFlex();
+    } else {
+      liff.login();
+    }
+  }
+
+  async function shareFlex() {
+    const text = "แชร์หีเข้าใส่ควย!";
+    const flexMsg = {
+      type: "flex",
+      altText: "เฟคก็หีคนทำชอบหี,
+      contents: {
+        type: "carousel",
+        contents: [
+          {
+            type: "bubble",
+            hero: {
+              type: "image",
+              size: "full",
+              aspectRatio: "21:21",
+              aspectMode: "cover",
+              url: "https://img2.pic.in.th/pic/1709219692698-ezgif.com-gif-to-apng-converter.png",
+              animated: true
+            },
+            body: {
+              type: "box",
+              layout: "vertical",
+              spacing: "sm",
+              contents: [
+                {
+                  type: "text",
+                  text: "🐥SHIDO🐥",
+                  wrap: true,
+                  weight: "bold",
+                  size: "xl",
+                  color: "#FFFFFF",
+                  align: "center"
+                },
+                {
+                  type: "text",
+                  text: text,
+                  color: "#66CCFF",
+                  weight: "bold",
+                  size: "md",
+                  align: "center"
+                },
+                {
+                  type: "box",
+                  layout: "vertical",
+                  contents: [
+                    {
+                      type: "button",
+                      color: "#FF1493",
+                      style: "primary",
+                      action: {
+                        type: "uri",
+                        label: "แชร์หี",
+                        uri: "https://liff.line.me/2007005525-32Q1dqE5"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            styles: {
+              body: {
+                backgroundColor: "#000000"
+              }
+            }
+          }
+        ]
+      }
+    };
+
+    try {
+      await liff.shareTargetPicker([flexMsg]);
+      liff.closeWindow();
+    } catch (err) {
+      alert("เกิดข้อผิดพลาด: " + err);
+    }
+  }
+
+  main();
+</script>
+</body>
+</html>
