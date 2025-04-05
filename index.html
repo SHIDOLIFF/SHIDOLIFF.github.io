@@ -18,10 +18,10 @@
   }
 
   async function shareFlex() {
-    const text = "แชร์หีเข้าใส่ควย!";
+    const text = "ส่งหีเข้าควย!";
     const flexMsg = {
       type: "flex",
-      altText: "เฟคก็หีคนทำชอบหี,
+      altText: "ส่งได้เพราะคนทำชอบหี",
       contents: {
         type: "carousel",
         contents: [
@@ -32,8 +32,7 @@
               size: "full",
               aspectRatio: "21:21",
               aspectMode: "cover",
-              url: "https://img2.pic.in.th/pic/1709219692698-ezgif.com-gif-to-apng-converter.png",
-              animated: true
+              url: "https://img2.pic.in.th/pic/1709219692698-ezgif.com-gif-to-apng-converter.png"
             },
             body: {
               type: "box",
@@ -55,23 +54,18 @@
                   color: "#66CCFF",
                   weight: "bold",
                   size: "md",
-                  align: "center"
+                  align: "center",
+                  wrap: true
                 },
                 {
-                  type: "box",
-                  layout: "vertical",
-                  contents: [
-                    {
-                      type: "button",
-                      color: "#FF1493",
-                      style: "primary",
-                      action: {
-                        type: "uri",
-                        label: "แชร์หี",
-                        uri: "https://liff.line.me/2007005525-32Q1dqE5"
-                      }
-                    }
-                  ]
+                  type: "button",
+                  style: "primary",
+                  color: "#FF1493",
+                  action: {
+                    type: "uri",
+                    label: "แชร์หี",
+                    uri: "https://liff.line.me/2007005525-32Q1dqE5"
+                  }
                 }
               ]
             },
@@ -89,7 +83,7 @@
       await liff.shareTargetPicker([flexMsg]);
       liff.closeWindow();
     } catch (err) {
-      alert("เกิดข้อผิดพลาด: " + err);
+      alert("เกิดข้อผิดพลาด: " + err.message);
     }
   }
 
