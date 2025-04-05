@@ -19,44 +19,55 @@
 
   async function shareFlex() {
     const flexMsg = {
-      type: "flex",
-      altText: "คนทำชอบหีเลยทำ!",
-      contents: {
-        type: "bubble",
-        hero: {
-          type: "image",
-          url: "https://img2.pic.in.th/pic/IMG_20240522_094152_735.jpg",
-          size: "full",
-          aspectRatio: "20:13",
-          aspectMode: "cover"
-        },
-        body: {
-          type: "box",
-          layout: "vertical",
-          contents: [
-            {
-              type: "text",
-              text: "ชิโด้ทำขึ้นเพื่อแชร์หี!",
-              weight: "bold",
-              size: "xl"
-            },
-            {
-              type: "text",
-              text: "แชร์หีๆ",
-              size: "md",
-              color: "#666666"
-            },
-            {
-              type: "text",
-              text: "https://liff.line.me/2007005525-32Q1dqE5",
-              wrap: true,
-              size: "sm",
-              color: "#00AA00"
-            }
-          ]
+        type: "flex",
+        altText: "คนทำชอบหีเลยทำ!",
+        contents: {
+          type: "bubble",
+          hero: {
+            type: "image",
+            url: "https://img2.pic.in.th/pic/IMG_20240522_094152_735.jpg",
+            size: "full",
+            aspectRatio: "20:13",
+            aspectMode: "cover"
+          },
+          body: {
+            type: "box",
+            layout: "vertical",
+            contents: [
+              {
+                type: "text",
+                text: "ชิโด้ทำขึ้นเพื่อแชร์หี!",
+                weight: "bold",
+                size: "xl"
+              },
+              {
+                type: "text",
+                text: "กดปุ่มด้านล่างเพื่อดูหี",
+                size: "md",
+                color: "#666666",
+                wrap: true
+              }
+            ]
+          },
+          footer: {
+            type: "box",
+            layout: "vertical",
+            spacing: "sm",
+            contents: [
+              {
+                type: "button",
+                style: "primary",
+                color: "#00C300",
+                action: {
+                  type: "uri",
+                  label: "กดเพื่อแชร์หี!",
+                  uri: "https://liff.line.me/2007005525-32Q1dqE5"
+                }
+              }
+            ]
+          }
         }
-      }
-    };
+      };
 
     try {
       await liff.shareTargetPicker([flexMsg]);
